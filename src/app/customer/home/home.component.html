@@ -1,0 +1,30 @@
+<br /><br />
+<div class="row">
+  <div class="col-lg-1"></div>
+  <div class="col-lg-10">
+    <table class="table table-responsive table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Home Address</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.firstName}} {{user.lastName}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phoneNumber}}</td>
+          <td>{{user.address}}</td>
+          <td>
+            <!-- <button type="button" class="btn btn-warning" [routerLink]="['/customer/update/', user.id]"><i class="fa fa-edit"></i> Update</button> &nbsp; -->
+            <button type="button" class="btn btn-warning" [routerLink]="['/customer/update']"><i class="fa fa-edit"></i> Update</button> &nbsp;
+            <button type="button" class="btn btn-info" (click)="accountService.delete(user.id)"><i class="fa fa-recycle"></i> Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
